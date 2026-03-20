@@ -11,11 +11,11 @@ void splitPDF(const string& input){
 	string dir = p.parent_path().string();
 	string name = p.stem().string();
 
-	string outdir = dir + "\\" + name + "_pages";
-	fs::create_directories(outdir);
+	//string outdir = dir + "\\" + name + "_pages";
+	//fs::create_directories(outdir);
 
-	string output = outdir + "\\page-%02d.pdf";
-	//string output = name + "_page.pdf";
+	//string output = outdir + "\\page-%02d.pdf";
+	string output = dir + "\\" + name + "_page-%02d.pdf";
 
 	string command = "qpdf --split-pages \"" + input + "\" \"" + output + "\"";
 
