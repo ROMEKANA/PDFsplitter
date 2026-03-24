@@ -23,6 +23,7 @@ qt_add_executable(PDF-spliter
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        connect.cpp
 )
 
 target_link_libraries(PDF-spliter PRIVATE
