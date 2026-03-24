@@ -14,6 +14,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pdfView->setDocument(m_document);
 
     setupConnections();
+
+    //左半分に表示
+    resize(960, 1080);
+    move(0,0);
 }
 
 MainWindow::~MainWindow()
