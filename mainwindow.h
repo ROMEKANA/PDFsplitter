@@ -22,6 +22,7 @@ public:
 private:
     Ui::MainWindow *ui;
     QPdfDocument *m_document;
+    void setupConnections();
 
 };
 #endif // MAINWINDOW_H

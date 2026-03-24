@@ -13,19 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_document = new QPdfDocument(this);
     ui->pdfView->setDocument(m_document);
 
-    connect(ui->openButton, &QPushButton::clicked, this, [this]() {
-
-        QString filePath = QFileDialog::getOpenFileName(
-            this,
-            "PDFを開く",
-            "",
-            "PDF Files (*.pdf)"
-            );
-
-        if(filePath.isEmpty()) return;
-
-        m_document->load(filePath);
-    });
+    setupConnections();
 }
 
 MainWindow::~MainWindow()
