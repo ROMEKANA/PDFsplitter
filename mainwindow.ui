@@ -26,15 +26,29 @@
      <widget class="QPdfView" name="pdfView" native="true"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit1"/>
+     <widget class="QLineEdit" name="lineEdit2">
+      <property name="placeholderText">
+       <string>教科</string>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit2"/>
+     <widget class="QLineEdit" name="lineEdit1">
+      <property name="placeholderText">
+       <string>名前</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="Rename">
       <property name="text">
        <string>名前変更</string>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
       </property>
      </widget>
     </item>

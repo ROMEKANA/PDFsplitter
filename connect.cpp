@@ -39,6 +39,8 @@ void MainWindow::setupConnections(){
 
         if(name1.isEmpty() || name2.isEmpty()) return;
 
+        ui->lineEdit2->setFocus();
+
        // ui->pdfView->setDocument(nullptr);  // ← 先に切る
 
        // m_document->close();
@@ -97,6 +99,9 @@ void MainWindow::setupConnections(){
         loadPDF();
         //*/
     });
+
+    connect(ui->lineEdit1, &QLineEdit::returnPressed, ui->Rename, &QPushButton::click);
+    connect(ui->lineEdit2, &QLineEdit::returnPressed, ui->Rename, &QPushButton::click);
 }
 
 void MainWindow::loadPDF(){
