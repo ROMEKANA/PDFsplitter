@@ -9,6 +9,7 @@
 #include <Qstring>
 #include <QPushButton>
 #include <qcoreapplication.h>
+#include <QPdfPageNavigator>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -29,7 +30,7 @@ private:
     QPdfDocument *m_document;
     QString filePath;
     int pagecount;
-    QString filePaths[30];
+    QString filePaths[99];
     void setupConnections();
     void loadPDF();
     void splitPDF();
