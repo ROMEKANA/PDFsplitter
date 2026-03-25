@@ -119,12 +119,23 @@ void MainWindow::splitPDF(){
     QString command = "split " + stri + filePath + stri;
     qDebug() << command;
 
-    */
+
 
     QString command = "split " + filePath;
     qDebug() << command;
 
     system(command.toUtf8());
+
+    */
+
+    QProcess process;
+
+    process.start("split.exe", { filePath });
+
+    process.waitForFinished();
+
+    qDebug() << process.readAllStandardOutput();
+    qDebug() << process.readAllStandardError();
 
 
     QStringList list = filePath.split(".");

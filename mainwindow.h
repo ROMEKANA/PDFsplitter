@@ -12,6 +12,7 @@
 #include <QPdfPageNavigator>
 #include <QThread>
 #include <QDate>
+#include <QProcess>
 
 
 //#include <filesystem>
