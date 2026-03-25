@@ -14,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     setupConnections();
 
     //左半分に表示
-    resize(960, 1000);
+    resize(900, 1000);
     move(0,0);
 }
 

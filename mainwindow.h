@@ -8,6 +8,7 @@
 #include <QFileInfo>
 #include <Qstring>
 #include <QPushButton>
+#include <qcoreapplication.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
