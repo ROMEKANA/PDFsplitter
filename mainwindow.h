@@ -13,6 +13,8 @@
 #include <QThread>
 #include <QDate>
 #include <QProcess>
+#include <QDir>
+#include <QFileInfoList>
 
 
 //#include <filesystem>

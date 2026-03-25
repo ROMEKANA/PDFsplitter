@@ -4,7 +4,7 @@
 //using namespace std;
 
 void MainWindow::setupConnections(){
-    connect(ui->openButton, &QPushButton::clicked, this, [this]() {
+    connect(ui->openbutton, &QPushButton::clicked, this, [this]() {
 
         filePath = QFileDialog::getOpenFileName(
             this,
@@ -19,20 +19,43 @@ void MainWindow::setupConnections(){
         //m_document->load(filePath);
         qDebug() << filePath;
 
-        m_document->load(filePath);
 
 
-        nowpage = 0;
-        pagecount = m_document->pageCount();
-
-        ui->pdfView->pageNavigator()->jump(nowpage, {0, 0}, 1.0);
-
-
-        qDebug() << "pagecount is " <<  QString::number(pagecount);
-
-        splitPDF();
         loadPDF();
 
+        splitPDF();
+
+
+    });
+
+    connect(ui->newest, &QPushButton::clicked, this, [this]() {
+
+        qDebug() << "neewestvcalled";
+
+        QDir dir("C:/SCAN");
+
+        dir.setNameFilters({"*.pdf"});
+        dir.setFilter(QDir::Files);
+        dir.setSorting(QDir::Time);
+
+        // 更新日時でソート（新しい順）
+        //dir.setSorting(QDir::Time | QDir::Reversed);
+
+        QFileInfoList list = dir.entryInfoList();
+
+        if(list.isEmpty()){
+            return;
+        }
+
+        filePath = list.first().absoluteFilePath();
+
+        qDebug() << filePath;
+
+
+
+        loadPDF();
+
+        splitPDF();
     });
 
     connect(ui->Rename, &QPushButton::clicked, this, [this]() {
@@ -63,7 +86,7 @@ void MainWindow::setupConnections(){
         qDebug() << "old:" << filePaths[nowpage];
         qDebug() << "new:" << newPath;
 
-        loadPDF();
+        //loadPDF();
 
         //QThread::msleep(10000);  // ちょい待つ
         //if(file.rename(newPath)) {
@@ -74,8 +97,8 @@ void MainWindow::setupConnections(){
         else {
             qDebug() << "rename failed";
             //qDebug() << file.errorString();
-            nowpage--;
-            loadPDF();
+            //nowpage--;
+            //loadPDF();
             return;
         }
 
@@ -98,9 +121,11 @@ void MainWindow::setupConnections(){
        // qDebug() << "now is " << nowpage;
         qDebug() << "now is " << ui->pdfView->pageNavigator()->currentPage();
 
-        loadPDF();
+        //loadPDF();
         //*/
     });
+
+
 
     connect(ui->lineEdit1, &QLineEdit::returnPressed, ui->Rename, &QPushButton::click);
     connect(ui->lineEdit2, &QLineEdit::returnPressed, ui->Rename, &QPushButton::click);
@@ -111,6 +136,17 @@ void MainWindow::loadPDF(){
     //qDebug() << "open is " << filePaths[nowpage];
 
     //m_document->load(filePaths[nowpage]);
+
+    m_document->load(filePath);
+
+
+    nowpage = 0;
+    pagecount = m_document->pageCount();
+
+    ui->pdfView->pageNavigator()->jump(nowpage, {0, 0}, 1.0);
+
+
+    qDebug() << "pagecount is " <<  QString::number(pagecount);
 
 }
 
@@ -143,7 +179,7 @@ void MainWindow::splitPDF(){
     QStringList list = filePath.split(".");
 
 
-    for(int i = 0;i < pagecount; i++){
+    for(int i = 0;i < pagecount && i < 100; i++){
         QString number;
         if(pagecount < 10) number = QString::number(i+1);
         else number = QString("%1").arg(i+1, 2, 10, QChar('0'));

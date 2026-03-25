@@ -16,9 +16,16 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QPushButton" name="openButton">
+     <widget class="QPushButton" name="newest">
       <property name="text">
-       <string>開く</string>
+       <string>最新のファイル</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="openbutton">
+      <property name="text">
+       <string>フォルダから開く</string>
       </property>
      </widget>
     </item>
