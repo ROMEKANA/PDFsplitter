@@ -28,8 +28,12 @@ private:
     Ui::MainWindow *ui;
     QPdfDocument *m_document;
     QString filePath;
+    int pagecount;
+    QString filePaths[30];
     void setupConnections();
     void loadPDF();
+    void splitPDF();
+    int nowpage;
 
 };
 #endif // MAINWINDOW_H
