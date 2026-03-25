@@ -4,6 +4,10 @@
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QPdfDocument>
+#include <QFile>
+#include <QFileInfo>
+#include <Qstring>
+#include <QPushButton>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,7 +26,9 @@ public:
 private:
     Ui::MainWindow *ui;
     QPdfDocument *m_document;
+    QString filePath;
     void setupConnections();
+    void loadPDF();
 
 };
 #endif // MAINWINDOW_H

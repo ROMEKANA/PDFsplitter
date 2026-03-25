@@ -6,44 +6,46 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>435</width>
-    <height>700</height>
+    <width>409</width>
+    <height>491</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="openButton">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>10</y>
-      <width>80</width>
-      <height>24</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPdfView" name="pdfView" native="true">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>60</y>
-      <width>371</width>
-      <height>601</height>
-     </rect>
-    </property>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="openButton">
+      <property name="text">
+       <string>開く</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="Rename">
+      <property name="text">
+       <string>名前変更</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPdfView" name="pdfView" native="true"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit1"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit2"/>
+    </item>
+   </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>435</width>
+     <width>409</width>
      <height>21</height>
     </rect>
    </property>

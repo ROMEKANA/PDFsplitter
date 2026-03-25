@@ -1,8 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QPdfDocument>
-#include <QFileDialog>
-#include <QPushButton>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -12,11 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_document = new QPdfDocument(this);
     ui->pdfView->setDocument(m_document);
+    ui->pdfView->setZoomMode(QPdfView::ZoomMode::FitInView);
 
     setupConnections();
 
     //左半分に表示
-    resize(960, 1080);
+    resize(960, 1000);
     move(0,0);
 }
 
