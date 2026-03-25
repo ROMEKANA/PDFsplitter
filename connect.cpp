@@ -1,10 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QThread>
-
-//#include <filesystem>
-#include <cstdlib>
-//#include <iostream>
 
 //using namespace std;
 
@@ -35,6 +30,7 @@ void MainWindow::setupConnections(){
 
         splitPDF();
         loadPDF();
+
     });
 
     connect(ui->Rename, &QPushButton::clicked, this, [this]() {
@@ -48,14 +44,17 @@ void MainWindow::setupConnections(){
        // m_document->close();
         //QThread::msleep(50);  // ちょい待つ
 
+
         QFileInfo info(filePaths[nowpage]);
 
         QString dir = info.absolutePath();
-        QString newName = name1 + "_" + name2 + ".pdf";
+        QString newName = name1  + name2 + todate + ".pdf";
         QString newPath = dir + "/" + newName;
+
 
         QFile file(filePaths[nowpage]);
         file.close();
+
 
         qDebug() << "old:" << filePaths[nowpage];
         qDebug() << "new:" << newPath;
@@ -78,7 +77,7 @@ void MainWindow::setupConnections(){
 
         // 入力欄を空にする
         ui->lineEdit1->clear();
-        ui->lineEdit2->clear();
+        //ui->lineEdit2->clear();
 
         /*auto nav = ui->pdfView->pageNavigator();
 

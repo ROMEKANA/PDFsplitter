@@ -23,13 +23,6 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="susumu">
-      <property name="text">
-       <string>susumeru</string>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QPdfView" name="pdfView" native="true"/>
     </item>
     <item>

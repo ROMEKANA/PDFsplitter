@@ -16,6 +16,10 @@ MainWindow::MainWindow(QWidget *parent)
     //左半分に表示
     resize(900, 1000);
     move(0,0);
+
+    QDate today = QDate::currentDate();
+    todate = today.toString("MMdd");
+    qDebug() << "today is " << todate;
 }
 
 MainWindow::~MainWindow()

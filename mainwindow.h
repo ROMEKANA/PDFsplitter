@@ -10,6 +10,13 @@
 #include <QPushButton>
 #include <qcoreapplication.h>
 #include <QPdfPageNavigator>
+#include <QThread>
+#include <QDate>
+
+
+//#include <filesystem>
+#include <cstdlib>
+//#include <iostream>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -35,6 +42,7 @@ private:
     void loadPDF();
     void splitPDF();
     int nowpage;
+    QString todate;
 
 };
 #endif // MAINWINDOW_H
