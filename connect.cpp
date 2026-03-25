@@ -21,12 +21,14 @@ void MainWindow::setupConnections(){
 
         m_document->load(filePath);
 
+
+        nowpage = 0;
         pagecount = m_document->pageCount();
+
+        ui->pdfView->pageNavigator()->jump(nowpage, {0, 0}, 1.0);
 
 
         qDebug() << "pagecount is " <<  QString::number(pagecount);
-
-        nowpage = 0;
 
         splitPDF();
         loadPDF();
@@ -54,8 +56,8 @@ void MainWindow::setupConnections(){
         QString newPath = dir + "/" + newName;
 
 
-        QFile file(filePaths[nowpage]);
-        file.close();
+        //QFile file(filePaths[nowpage]);
+        //file.close();
 
 
         qDebug() << "old:" << filePaths[nowpage];
@@ -71,7 +73,7 @@ void MainWindow::setupConnections(){
         }
         else {
             qDebug() << "rename failed";
-            qDebug() << file.errorString();
+            //qDebug() << file.errorString();
             nowpage--;
             loadPDF();
             return;
@@ -85,15 +87,15 @@ void MainWindow::setupConnections(){
 
         int current = nav->currentPage();
         nav->setCurrentPage(current + 1);*/
-        qDebug() << "now is " << nowpage;
+       // qDebug() << "now is " << nowpage;
         qDebug() << "now is " << ui->pdfView->pageNavigator()->currentPage();
         nowpage++;
         //ui->pdfView->setPage(nowpage + 1);
         //ui->pdfView->pageNavigator()->forward();
-        ui->pdfView->pageNavigator()->jump(ui->pdfView->pageNavigator()->currentPage() + 1, {0, 0}, 1.0);
+        ui->pdfView->pageNavigator()->jump(nowpage, {0, 0}, 1.0);
 
         qDebug() << "move";
-        qDebug() << "now is " << nowpage;
+       // qDebug() << "now is " << nowpage;
         qDebug() << "now is " << ui->pdfView->pageNavigator()->currentPage();
 
         loadPDF();
